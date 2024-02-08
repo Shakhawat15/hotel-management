@@ -20,7 +20,10 @@ const FeaturedRoom: FC<Props> = (props) => {
           />
         </div>
         <div className="grid grid-cols-2 gap-8 h-48">
-          {featuredRoom.images.splice(1, 2).map((image) => (
+          {(Array.isArray(featuredRoom.images)
+            ? featuredRoom.images.slice(1, 3)
+            : []
+          ).map((image) => (
             <div key={image._key} className="rounded-2xl overflow-hidden">
               <Image
                 src={image.url}
