@@ -1,21 +1,19 @@
 "use client";
 
 import { getRoom } from "@/app/libs/apis";
-import useSWR from "swr";
-import LoadingSpinner from "../../loading";
-import HotelPhotoGallerry from "@/components/HotelPhotoGallerry/HotelPhotoGallerry";
-import { MdOutlineCleaningServices } from "react-icons/md";
-import { LiaFireExtinguisherSolid } from "react-icons/lia";
-import { AiOutlineMedicineBox } from "react-icons/ai";
-import { GiSmokeBomb } from "react-icons/gi";
+import { getStripe } from "@/app/libs/stripe";
 import BookRoomCta from "@/components/BookRoomCta/BookRoomCta";
+import HotelPhotoGallerry from "@/components/HotelPhotoGallerry/HotelPhotoGallerry";
+import RoomReview from "@/components/RoomReview/RoomReview";
+import axios from "axios";
 import { useState } from "react";
 import toast from "react-hot-toast";
-import { Image } from "@/models/room";
-import axios from "axios";
-import { get } from "lodash";
-import { getStripe } from "@/app/libs/stripe";
-import RoomReview from "@/components/RoomReview/RoomReview";
+import { AiOutlineMedicineBox } from "react-icons/ai";
+import { GiSmokeBomb } from "react-icons/gi";
+import { LiaFireExtinguisherSolid } from "react-icons/lia";
+import { MdOutlineCleaningServices } from "react-icons/md";
+import useSWR from "swr";
+import LoadingSpinner from "../../loading";
 
 const RoomDetails = (props: { params: { slug: string } }) => {
   const {
