@@ -8,7 +8,7 @@ import { authOptions } from "@/app/libs/auth";
 import { getServerSession } from "next-auth";
 import { NextResponse } from "next/server";
 
-export async function GET(req: Response, res: Response) {
+export async function GET(req: Request, res: Response) {
   const session = await getServerSession(authOptions);
   if (!session) {
     return new NextResponse("Authentication required", { status: 401 });
